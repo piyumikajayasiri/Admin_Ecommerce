@@ -9,7 +9,7 @@ import {
 } from "@clerk/nextjs";
 const Header = () => {
   return (
-    <header className="bg-gradient-to-r from-blue-300 to-purple-400 shadow-lg">
+    <header className="bg-gradient-to-r bg-[#306A9F] shadow-lg">
       <div className="max-w-6xl flex mx-auto justify-between items-center p-3">
         <Link
           href="/"
@@ -22,14 +22,14 @@ const Header = () => {
         </Link>
         <nav>
           <ul className="flex gap-4">
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
             <SignedOut>
               <SignInButton />
             </SignedOut>
             <SignedIn>
               <UserButton />
-              <SignOutButton />
+              <button className="bg-[#D0A7A7] px-5 py-2">
+                <SignOutButton />
+              </button>
             </SignedIn>
           </ul>
         </nav>
