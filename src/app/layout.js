@@ -1,7 +1,12 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
-import { ClerkLoaded, ClerkLoading, ClerkProvider } from "@clerk/nextjs";
+import {
+  ClerkLoaded,
+  ClerkLoading,
+  ClerkProvider,
+  SignedIn,
+} from "@clerk/nextjs";
 import SideNavigationMenu from "../components/SideMenu";
 
 const geistSans = Geist({
@@ -34,12 +39,14 @@ export default function RootLayout({ children }) {
             </ClerkLoading>
             <ClerkLoaded>
               <Header />
-              <div className="flex flex-row">
-                <div className="w-[25%]">
-                  <SideNavigationMenu />
+              <SignedIn>
+                <div className="flex flex-row">
+                  <div className="w-[25%]">
+                    <SideNavigationMenu />
+                  </div>
+                  <div className="flex-grow-0 w-full">{children}</div>
                 </div>
-                <div className="flex-grow-0 w-full">{children}</div>
-              </div>
+              </SignedIn>
             </ClerkLoaded>
           </body>
         </html>
